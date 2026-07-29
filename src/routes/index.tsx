@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+
 import { Navbar, SECTIONS, type SectionId } from "@/components/site/Navbar";
 import { Inicio } from "@/components/site/Inicio";
 import { Nosotros } from "@/components/site/Nosotros";
@@ -52,16 +54,26 @@ function Index() {
   return (
     <div className="h-screen overflow-hidden bg-background text-foreground">
       <Navbar active={active} onNavigate={navigate} />
-      <main key={active} className="view-enter h-screen pt-16">
-        <div className="h-full">
-          {active === "inicio" && <Inicio onNavigate={navigate} />}
-          {active === "nosotros" && <Nosotros />}
-          {active === "regularizacion" && <Regularizacion />}
-          {active === "proyectos" && <Proyectos />}
-          {active === "impresion" && <Impresion />}
-          {active === "contacto" && <Contacto />}
-        </div>
-      </main>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.main
+          key={active}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="h-screen pt-16"
+        >
+          <div className="h-full">
+            {active === "inicio" && <Inicio onNavigate={navigate} />}
+            {active === "nosotros" && <Nosotros />}
+            {active === "regularizacion" && <Regularizacion />}
+            {active === "proyectos" && <Proyectos />}
+            {active === "impresion" && <Impresion />}
+            {active === "contacto" && <Contacto />}
+          </div>
+        </motion.main>
+      </AnimatePresence>
     </div>
   );
 }
+
