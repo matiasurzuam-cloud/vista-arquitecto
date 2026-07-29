@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { ActionButton, LinkButton, SectionTitle, waLink } from "./shared";
+import { LiftCard, Reveal } from "./motion";
 
 type Producto = {
   id: string;
@@ -78,7 +79,7 @@ export function Impresion() {
       <div className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
         <div className="grid gap-px bg-border sm:grid-cols-2">
           {PRODUCTOS.map((p) => (
-            <article key={p.id} className="bg-surface p-6">
+            <LiftCard key={p.id} className="bg-surface p-6">
               <h3 className="text-lg">{p.nombre}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.detalle}</p>
 
@@ -105,11 +106,11 @@ export function Impresion() {
               <ActionButton className="mt-4" onClick={() => agregar(p)}>
                 Agregar al carrito
               </ActionButton>
-            </article>
+            </LiftCard>
           ))}
         </div>
 
-        <aside className="border border-border p-6">
+        <Reveal className="border border-border p-6">
           <p className="eyebrow">Carrito</p>
           {items.length === 0 ? (
             <p className="mt-4 text-sm text-muted-foreground">Aún no has agregado productos.</p>
@@ -190,7 +191,7 @@ export function Impresion() {
           >
             Enviar pedido por WhatsApp
           </LinkButton>
-        </aside>
+        </Reveal>
       </div>
     </div>
   );

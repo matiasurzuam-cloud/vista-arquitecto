@@ -1,6 +1,7 @@
 import oficina1 from "@/assets/hero-oficina.jpg";
 import oficina2 from "@/assets/oficina-2.jpg";
 import { SectionTitle } from "./shared";
+import { Reveal } from "./motion";
 
 const ETAPAS = [
   { n: "01", t: "Diagnóstico", d: "Texto placeholder: revisión de antecedentes, situación normativa del inmueble y factibilidad." },
@@ -27,11 +28,11 @@ export function Nosotros() {
         <p className="eyebrow mt-6">Metodología de trabajo</p>
         <div className="mt-5 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
           {ETAPAS.map((e) => (
-            <article key={e.n} className="bg-background p-6">
+            <Reveal key={e.n} delay={Number(e.n) * 0.08} className="bg-background p-6">
               <span className="text-xs tracking-[0.2em] text-brand">{e.n}</span>
               <h3 className="mt-3 text-lg">Etapa {Number(e.n)}: {e.t}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{e.d}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

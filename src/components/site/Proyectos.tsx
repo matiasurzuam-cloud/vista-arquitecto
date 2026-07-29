@@ -3,6 +3,7 @@ import p1 from "@/assets/proyecto-1.jpg";
 import p2 from "@/assets/proyecto-2.jpg";
 import plano from "@/assets/plano.jpg";
 import { SectionTitle } from "./shared";
+import { Reveal } from "./motion";
 
 type Proyecto = {
   id: string;
@@ -85,12 +86,14 @@ export function Proyectos() {
         lead="Selección de obras y proyectos tramitados por la oficina."
       />
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {PROYECTOS.map((p) => (
-          <button key={p.id} onClick={() => setActivo(p)} className="group text-left">
-            <img src={p.portada} alt={p.titulo} width={1200} height={900} loading="lazy" className="h-52 w-full object-cover transition-opacity group-hover:opacity-85" />
+        {PROYECTOS.map((p, i) => (
+          <Reveal key={p.id} delay={i * 0.08}>
+          <button onClick={() => setActivo(p)} className="group w-full text-left transition-transform duration-300 hover:-translate-y-1">
+            <img src={p.portada} alt={p.titulo} width={1200} height={900} loading="lazy" className="h-52 w-full object-cover transition-all duration-500 group-hover:opacity-90 group-hover:brightness-105" />
             <h3 className="mt-3 text-lg transition-colors group-hover:text-brand">{p.titulo}</h3>
             <p className="text-sm text-muted-foreground">{p.lugar} · {p.anio}</p>
           </button>
+          </Reveal>
         ))}
       </div>
     </div>
