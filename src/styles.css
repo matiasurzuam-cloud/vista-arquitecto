@@ -152,3 +152,47 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility emphasis {
+  font-style: italic;
+  font-weight: 700;
+}
+
+@utility eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+@utility view-enter {
+  animation: view-fade 0.45s ease both;
+}
+
+@keyframes view-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
