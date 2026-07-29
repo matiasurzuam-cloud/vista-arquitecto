@@ -114,9 +114,9 @@ export function Regularizacion() {
         title="Servicios de permisología"
         lead="Selecciona un servicio para ver el detalle y agendar directamente por WhatsApp."
       />
-      <div className="mt-8 grid gap-px overflow-y-auto bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-4 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3">
         {SERVICIOS.map((s) => (
-          <article key={s.id} className="flex flex-col bg-background p-6">
+          <article key={s.id} className="flex flex-col border border-border p-6">
             <button onClick={() => setActivo(s)} className="text-left">
               <h3 className="text-lg leading-snug transition-colors hover:text-brand">{s.titulo}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.breve}</p>
