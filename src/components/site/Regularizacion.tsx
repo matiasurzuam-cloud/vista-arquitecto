@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { LinkButton, SectionTitle, waLink } from "./shared";
+import { LiftCard, Reveal } from "./motion";
+
 
 type Servicio = {
   id: string;
