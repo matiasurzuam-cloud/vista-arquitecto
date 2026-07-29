@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { LinkButton, SectionTitle, waLink } from "./shared";
+import { LiftCard, Reveal } from "./motion";
+
 
 type Servicio = {
   id: string;
@@ -115,31 +117,34 @@ export function Regularizacion() {
         lead="Selecciona un servicio para ver el detalle y agendar directamente por WhatsApp."
       />
       <div className="mt-8 grid gap-4 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3">
-        {SERVICIOS.map((s) => (
-          <article key={s.id} className="flex flex-col border border-border p-6">
-            <button onClick={() => setActivo(s)} className="text-left">
-              <h3 className="text-lg leading-snug transition-colors hover:text-brand">{s.titulo}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.breve}</p>
-            </button>
-            <div className="mt-5 flex flex-wrap items-center gap-4 pt-4">
-              <a
-                href={waLink(`Hola, quiero agendar el servicio: ${s.titulo}`)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs uppercase tracking-[0.18em] text-brand hover:text-brand-soft"
-              >
-                Agendar por WhatsApp
-              </a>
-              <button
-                onClick={() => setActivo(s)}
-                className="text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
-              >
-                Ver detalle
+        {SERVICIOS.map((s, i) => (
+          <Reveal key={s.id} delay={i * 0.05} className="h-full">
+            <LiftCard className="flex h-full flex-col border border-border bg-background p-6">
+              <button onClick={() => setActivo(s)} className="text-left">
+                <h3 className="text-lg leading-snug transition-colors hover:text-brand">{s.titulo}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.breve}</p>
               </button>
-            </div>
-          </article>
+              <div className="mt-5 flex flex-wrap items-center gap-4 pt-4">
+                <a
+                  href={waLink(`Hola, quiero agendar el servicio: ${s.titulo}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs uppercase tracking-[0.18em] text-brand transition-colors hover:text-brand-soft"
+                >
+                  Agendar por WhatsApp
+                </a>
+                <button
+                  onClick={() => setActivo(s)}
+                  className="text-xs uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Ver detalle
+                </button>
+              </div>
+            </LiftCard>
+          </Reveal>
         ))}
       </div>
+
     </div>
   );
 }

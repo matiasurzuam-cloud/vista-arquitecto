@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LinkButton, SectionTitle, waLink } from "./shared";
+import { Reveal } from "./motion";
 
 export function Contacto() {
   const [enviado, setEnviado] = useState(false);
@@ -40,7 +41,7 @@ export function Contacto() {
           ) : null}
         </form>
 
-        <div className="space-y-6">
+        <Reveal delay={0.1} className="space-y-6">
           <div className="border-t border-border pt-5 text-sm text-muted-foreground">
             <p className="eyebrow">Oficina</p>
             <p className="mt-2 text-foreground">Región del Maule, Chile</p>
@@ -61,7 +62,7 @@ export function Contacto() {
           <div className="flex h-56 items-center justify-center border border-border bg-surface">
             <p className="eyebrow">Mapa · Región del Maule (placeholder)</p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </div>
   );
