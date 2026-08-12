@@ -82,7 +82,7 @@ export function Inicio() {
   return (
     <section
       id="inicio"
-      className="relative min-h-[calc(100vh+170px)] overflow-hidden bg-[#061522] lg:min-h-[calc(100vh+210px)]"
+      className="relative min-h-[calc(100vh+40px)] overflow-hidden bg-[#061522] lg:min-h-[calc(100vh+60px)]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -186,7 +186,7 @@ export function Inicio() {
                   Estudio de arquitectura
                 </span>
 
-                <h1 className="text-[3.45rem] font-light leading-[0.91] tracking-[-0.064em] text-white sm:text-[4.8rem] lg:text-[5.9rem] xl:text-[6.5rem]">
+                <h1 className="text-[2.6rem] font-light leading-[0.94] tracking-[-0.055em] text-white sm:text-[3.6rem] lg:text-[4.4rem] xl:text-[4.9rem]">
                   <span className="block">{slide.title}</span>
                   <span className="block font-medium italic text-[#8fc8ff]">
                     {slide.accent}

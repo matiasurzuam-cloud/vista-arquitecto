@@ -53,14 +53,6 @@ const ETAPAS = [
   },
 ];
 
-const PALABRAS_TECNICAS = [
-  { label: "PLANTA", className: "left-[6%] top-[18%]" },
-  { label: "CORTE A-A", className: "right-[10%] top-[22%]" },
-  { label: "ESCALA 1:100", className: "left-[18%] bottom-[24%]" },
-  { label: "NPT +0.00", className: "right-[14%] bottom-[20%]" },
-  { label: "ELEVACIÓN", className: "left-[42%] top-[12%]" },
-];
-
 const easing = [0.22, 1, 0.36, 1] as const;
 
 function BlueprintScene() {
@@ -139,9 +131,9 @@ export function Nosotros() {
         className="pointer-events-none absolute -right-48 top-[32%] h-[520px] w-[520px] rounded-full bg-[#173b5d]/[0.05] blur-[140px]"
       />
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
         {/* HERO */}
-        <div className="relative min-h-[720px] overflow-hidden border-b border-black/10 lg:min-h-[760px]">
+        <div className="relative min-h-[440px] overflow-hidden border-b border-black/10 lg:min-h-[480px]">
           {/* Logo gigante */}
           <motion.div
             aria-hidden="true"
@@ -149,7 +141,7 @@ export function Nosotros() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 1.35, ease: easing }}
-            className="pointer-events-none absolute left-1/2 top-[47%] h-[640px] w-[720px] -translate-x-1/2 -translate-y-1/2 sm:h-[700px] sm:w-[800px] lg:h-[760px] lg:w-[900px]"
+            className="pointer-events-none absolute left-1/2 top-[47%] h-[380px] w-[430px] -translate-x-1/2 -translate-y-1/2 sm:h-[440px] sm:w-[500px] lg:h-[500px] lg:w-[580px]"
           >
             <motion.img
               src={logo}
@@ -202,7 +194,7 @@ export function Nosotros() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: easing }}
-            className="pointer-events-none absolute right-0 top-[-2rem] text-[10rem] font-light leading-none tracking-[-0.09em] text-[#173b5d]/[0.045] sm:text-[14rem] lg:text-[18rem]"
+            className="pointer-events-none absolute right-0 top-[-1rem] text-[6rem] font-light leading-none tracking-[-0.09em] text-[#173b5d]/[0.045] sm:text-[8rem] lg:text-[10rem]"
           >
             02
           </motion.span>
@@ -221,38 +213,8 @@ export function Nosotros() {
             </span>
           </motion.div>
 
-          {/* Palabras técnicas */}
-          <div className="hidden lg:block">
-            {PALABRAS_TECNICAS.map((item, index) => (
-              <motion.span
-                key={item.label}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                animate={
-                  reduceMotion
-                    ? undefined
-                    : {
-                        y: [0, index % 2 === 0 ? -5 : 5, 0],
-                      }
-                }
-                transition={{
-                  opacity: { delay: 0.35 + index * 0.08, duration: 0.6 },
-                  y: {
-                    duration: 7 + index,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                }}
-                className={`absolute ${item.className} text-[8px] uppercase tracking-[0.28em] text-[#173b5d]/25`}
-              >
-                {item.label}
-              </motion.span>
-            ))}
-          </div>
-
           {/* Título sobre logo */}
-          <div className="relative z-20 flex min-h-[610px] items-center justify-center px-2 pt-24 text-center lg:min-h-[650px] lg:pt-20">
+          <div className="relative z-20 flex min-h-[360px] items-center justify-center px-2 pt-14 text-center lg:min-h-[400px] lg:pt-12">
             <div className="w-full max-w-[1040px]">
               <motion.span
                 initial={{ opacity: 0, y: 18 }}
@@ -264,7 +226,7 @@ export function Nosotros() {
                 Diseño · Gestión · Territorio
               </motion.span>
 
-              <h1 className="text-[3.5rem] font-light leading-[0.9] tracking-[-0.065em] text-[#101828] sm:text-[5rem] lg:text-[6.3rem] xl:text-[7.2rem]">
+              <h1 className="text-[2.5rem] font-light leading-[0.94] tracking-[-0.055em] text-[#101828] sm:text-[3.4rem] lg:text-[4.2rem] xl:text-[4.7rem]">
   <span className="block overflow-hidden">
     <motion.span
       initial={{ y: "110%" }}
@@ -342,7 +304,7 @@ export function Nosotros() {
           </div>
 
           {/* Banda */}
-          <div className="absolute bottom-0 left-0 right-0 overflow-hidden border-y border-black/[0.07] py-4">
+          <div className="relative mt-10 overflow-hidden border-y border-black/[0.07] py-4">
             <motion.div
               animate={
                 reduceMotion
@@ -384,7 +346,7 @@ export function Nosotros() {
         </div>
 
         {/* FILOSOFÍA + VISUALES */}
-        <div className="mt-20 grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+        <div className="mt-14 grid items-center gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <div>
             <Reveal>
               <span className="text-[9px] uppercase tracking-[0.24em] text-[#0f5da8]">
@@ -533,7 +495,7 @@ export function Nosotros() {
         </div>
 
         {/* ESTADÍSTICAS */}
-        <div className="mt-24 overflow-hidden bg-[#123958] text-white shadow-[0_25px_80px_rgba(18,57,88,0.16)]">
+        <div className="mt-16 overflow-hidden bg-[#123958] text-white shadow-[0_25px_80px_rgba(18,57,88,0.16)]">
           <div className="grid sm:grid-cols-3">
             {ESTADISTICAS.map((stat, index) => (
               <motion.div
@@ -561,7 +523,7 @@ export function Nosotros() {
         </div>
 
         {/* METODOLOGÍA */}
-        <div className="mt-24 border-t border-black/10 pt-16">
+        <div className="mt-16 border-t border-black/10 pt-10">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
             <div>
               <div className="flex items-center gap-4">
@@ -628,9 +590,9 @@ export function Nosotros() {
         </div>
 
         {/* CIERRE */}
-        <div className="mt-24 border-t border-black/10 pt-16 text-center">
+        <div className="mt-16 border-t border-black/10 pt-10 text-center">
           <Reveal>
-            <p className="mx-auto max-w-[1100px] text-[2.7rem] font-light leading-[1.05] tracking-[-0.05em] text-[#111827] sm:text-[4rem] lg:text-[5.2rem]">
+            <p className="mx-auto max-w-[900px] text-[1.9rem] font-light leading-[1.15] tracking-[-0.04em] text-[#111827] sm:text-[2.6rem] lg:text-[3.2rem]">
               No diseñamos solo espacios.
               <span className="block font-medium italic text-[#173b5d]">
                 Diseñamos soluciones que permanecen.
