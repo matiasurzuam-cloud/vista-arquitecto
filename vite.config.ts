@@ -12,4 +12,8 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Default nitro target is Cloudflare Workers — override for Vercel deploys.
+  nitro: {
+    preset: "vercel",
+  },
 });
