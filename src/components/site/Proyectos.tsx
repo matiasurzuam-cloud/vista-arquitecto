@@ -30,6 +30,14 @@ import cocina01 from "../../assets/proyectos/cocina/01.png";
 import cocina02 from "../../assets/proyectos/cocina/02.png";
 import cocina03 from "../../assets/proyectos/cocina/03.jpg";
 
+/* Planos de arquitectura */
+import planosIsometrica from "../../assets/viviendas/200-ch/03-isometrica.jpg";
+import planosPlantaCh from "../../assets/viviendas/200-ch/05-planta.jpg";
+import planosElevaciones from "../../assets/viviendas/200-ch/04-elevaciones.jpg";
+import planosPlantaPm from "../../assets/viviendas/200-pm/04-planta.jpg";
+import planosPlanta140 from "../../assets/viviendas/140-fj/04-planta.jpg";
+import planosPlanta250 from "../../assets/viviendas/250-campo/06-planta.jpg";
+
 import { Reveal } from "./motion";
 import { PlanoVivienda } from "./PlanoVivienda";
 
@@ -45,6 +53,8 @@ type Proyecto = {
   fotos: string[];
   descripcion: string;
   conceptos: string[];
+  /** Proyecto de solo planos: las imágenes se muestran completas sobre fondo blanco. */
+  planos?: boolean;
 };
 
 const PROYECTOS: Proyecto[] = [
@@ -133,6 +143,33 @@ const PROYECTOS: Proyecto[] = [
       "Optimización espacial",
       "Almacenamiento",
       "Materialidad contemporánea",
+    ],
+  },
+  {
+    id: "planos-arquitectura",
+    numero: "05",
+    titulo: "Planos de arquitectura",
+    categoria: "Documentación técnica",
+    lugar: "Chile",
+    anio: "Varios",
+    superficie: "140 – 250 m²",
+    portada: planosIsometrica,
+    fotos: [
+      planosIsometrica,
+      planosPlantaCh,
+      planosElevaciones,
+      planosPlantaPm,
+      planosPlanta140,
+      planosPlanta250,
+    ],
+    planos: true,
+    descripcion:
+      "Plantas de arquitectura, elevaciones e isométricas de viviendas de entre 140 y 250 m². Cada proyecto se entrega con un juego completo de planos constructivos y de arquitectura.",
+    conceptos: [
+      "Plantas de arquitectura",
+      "Elevaciones",
+      "Isométrica",
+      "Distribución de recintos",
     ],
   },
 ];
@@ -277,7 +314,9 @@ function AccordionProyectos({ proyectos, onSelect }: AccordionProps) {
                   duration: 0.8,
                   ease: easing,
                 }}
-                className="absolute inset-0 h-full w-full object-cover"
+                className={`absolute inset-0 h-full w-full ${
+                  proyecto.planos ? "bg-white object-contain p-6" : "object-cover"
+                }`}
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#06111c]/90 via-[#06111c]/10 to-[#06111c]/45" />
@@ -416,7 +455,9 @@ function AccordionProyectos({ proyectos, onSelect }: AccordionProps) {
               src={proyecto.portada}
               alt={proyecto.titulo}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className={`absolute inset-0 h-full w-full transition-transform duration-700 group-hover:scale-105 ${
+                proyecto.planos ? "bg-white object-contain p-6" : "object-cover"
+              }`}
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#06111c]/92 via-[#06111c]/10 to-[#06111c]/35" />
@@ -560,7 +601,9 @@ function TarjetaProyecto({
                     duration: 0.72,
                     ease: easing,
                   }}
-                  className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+                  className={`h-full w-full transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04] ${
+                    proyecto.planos ? "bg-white object-contain p-4 sm:p-8" : "object-cover"
+                  }`}
                 />
               </AnimatePresence>
             </div>
@@ -1031,7 +1074,9 @@ function ProjectModal({
                     width={400}
                     height={260}
                     loading="lazy"
-                    className={`aspect-[16/10] w-full object-cover transition-all duration-300 ${
+                    className={`aspect-[16/10] w-full transition-all duration-300 ${
+                      activo.planos ? "bg-white object-contain p-1" : "object-cover"
+                    } ${
                       imagenActiva === index
                         ? "scale-105 opacity-100"
                         : "opacity-40 hover:opacity-100"
@@ -1108,6 +1153,7 @@ function ProjectModal({
             </div>
 
             {/* Documentación gráfica */}
+            {!activo.planos && (
             <div className="mt-16">
               <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
                 <div>
@@ -1154,6 +1200,7 @@ function ProjectModal({
                 />
               </div>
             </div>
+            )}
 
             {/* Cierre modal */}
             <div className="mt-16 flex flex-col gap-8 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
@@ -1411,7 +1458,7 @@ export function Proyectos() {
                 }}
                 className="mt-7 flex flex-wrap gap-3"
               >
-                {["Residencial", "Interiorismo", "Espacios exteriores"].map(
+                {["Residencial", "Interiorismo", "Espacios exteriores", "Planos"].map(
                   (item, index) => (
                     <span
                       key={item}
