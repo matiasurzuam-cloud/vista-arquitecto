@@ -252,7 +252,7 @@ export function Nosotros() {
       }}
       className="block text-[#173b5d]"
     >
-      espacios que
+      arquitectura
     </motion.span>
   </span>
 
@@ -267,15 +267,17 @@ export function Nosotros() {
       }}
       className="block font-medium italic text-[#0f5da8]"
     >
-      permanecen.
+      funcional.
     </motion.span>
   </span>
 </h1>
               <Reveal delay={0.25}>
                 <p className="mx-auto mt-8 max-w-[680px] text-sm leading-[1.9] text-[#667085] sm:text-base">
-                  Trabajamos desde una mirada técnica y humana, construyendo
-                  procesos claros y soluciones arquitectónicas capaces de
-                  responder a necesidades reales.
+                  En 3 Vértices, creemos que el buen diseño nace de entender
+                  profundamente las necesidades de cada cliente y su entorno.
+                  Desarrollamos proyectos desde una mirada técnica, sensible y
+                  conectada con el territorio, para mejorar la forma de habitar
+                  y la calidad de vida.
                 </p>
               </Reveal>
 

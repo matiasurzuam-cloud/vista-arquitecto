@@ -16,8 +16,8 @@ const slides = [
   {
     image: hero01,
     eyebrow: "Arquitectura · Diseño · Territorio",
-    title: "Diseñamos lugares",
-    accent: "que permanecen.",
+    title: "Diseñamos y proyectamos espacios funcionales",
+    accent: "que resuelven tus necesidades.",
     description:
       "Arquitectura contemporánea desarrollada desde una mirada técnica, sensible y conectada con el territorio.",
     imageClass: "object-contain object-right-bottom",

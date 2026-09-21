@@ -757,8 +757,8 @@ export function Regularizacion() {
                 </span>
               </motion.div>
 
-              <div className="max-w-[790px] pb-16 lg:pb-8">
-                <h2 className="text-[3.4rem] font-light leading-[0.98] tracking-[-0.055em] text-white sm:text-[5rem] lg:text-[6.5rem]">
+              <div className="max-w-[900px] pb-16 lg:pb-8">
+                <h2 className="text-[2.8rem] font-light leading-[0.98] tracking-[-0.055em] text-white sm:text-[4.2rem] lg:text-[5.4rem]">
                   <span className="block overflow-hidden">
                     <motion.span
                       initial={{ y: "110%" }}
@@ -776,7 +776,7 @@ export function Regularizacion() {
                       transition={{ delay: 0.23, duration: 0.95, ease: easing }}
                       className="block text-[#8fc8ff]"
                     >
-                      es proyectar
+                      es poner todo
                     </motion.span>
                   </span>
                   <span className="block overflow-hidden">
@@ -786,7 +786,7 @@ export function Regularizacion() {
                       transition={{ delay: 0.34, duration: 0.95, ease: easing }}
                       className="block"
                     >
-                      con certeza.
+                      en regla y en orden.
                     </motion.span>
                   </span>
                 </h2>
