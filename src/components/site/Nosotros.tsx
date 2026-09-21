@@ -5,6 +5,7 @@ import plano from "../../assets/plano.jpg";
 import oficina from "../../assets/oficina-2.jpg";
 
 import { Reveal } from "./motion";
+import { PlanoVivienda } from "./PlanoVivienda";
 
 const PRINCIPIOS = [
   {
@@ -67,31 +68,7 @@ function BlueprintScene() {
         }}
       />
 
-      <motion.svg
-        viewBox="0 0 620 420"
-        fill="none"
-        className="absolute left-[4%] top-[10%] hidden h-[430px] w-[630px] opacity-[0.12] lg:block"
-      >
-        <motion.path
-          d="M48 356H570M95 356V165L245 78L395 165V356M155 356V248H265V356M330 356V235H470V356M245 78V35M215 35H275"
-          stroke="#0F5DA8"
-          strokeWidth="1.1"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 2.8, ease: easing }}
-        />
-        <motion.path
-          d="M62 385H552M62 378V392M552 378V392M82 134H425M82 127V141M425 127V141"
-          stroke="#0F5DA8"
-          strokeWidth="0.9"
-          strokeDasharray="5 7"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 2.2, ease: easing }}
-        />
-      </motion.svg>
+      <PlanoVivienda className="absolute left-[4%] top-[10%] hidden h-[430px] w-[630px] text-[#0f5da8] opacity-[0.13] lg:block" />
 
       <motion.svg
         viewBox="0 0 460 300"

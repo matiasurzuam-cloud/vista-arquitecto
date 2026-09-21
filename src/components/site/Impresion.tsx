@@ -12,6 +12,7 @@ import impresion02 from "../../assets/impresion/impresion-02.jpg";
 import impresion03 from "../../assets/impresion/impresion-03.jpg";
 
 import { Reveal } from "./motion";
+import { PlanoVivienda } from "./PlanoVivienda";
 
 type TipoServicio = "planos" | "grafica";
 type TipoPlano = "bond-bn" | "bond-color";
@@ -124,22 +125,7 @@ function BlueprintBackground() {
         }}
       />
 
-      <motion.svg
-        aria-hidden="true"
-        viewBox="0 0 520 340"
-        fill="none"
-        className="pointer-events-none absolute -left-12 top-[8%] hidden h-[330px] w-[500px] opacity-[0.15] lg:block"
-      >
-        <motion.path
-          d="M24 300H495M72 300V124L190 58L310 124V300M310 170H470V300M120 300V205H205V300M345 300V220H425V300M190 58V22M163 22H217"
-          stroke="#0F5DA8"
-          strokeWidth="1.1"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 2.6, ease: easing }}
-        />
-      </motion.svg>
+      <PlanoVivienda className="pointer-events-none absolute -left-12 top-[8%] hidden h-[350px] w-[520px] text-[#0f5da8] opacity-[0.15] lg:block" />
 
       <motion.span
         aria-hidden="true"

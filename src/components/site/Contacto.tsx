@@ -2,6 +2,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { Reveal } from "./motion";
+import { PlanoVivienda } from "./PlanoVivienda";
 
 type Modalidad = "presencial" | "videollamada";
 type Motivo =
@@ -116,33 +117,7 @@ function BlueprintBackground() {
         }}
       />
 
-      <motion.svg
-        aria-hidden="true"
-        viewBox="0 0 520 340"
-        fill="none"
-        className="pointer-events-none absolute -left-16 top-[7%] hidden h-[340px] w-[520px] opacity-[0.13] lg:block"
-      >
-        <motion.path
-          d="M24 300H496M72 300V124L190 58L310 124V300M310 170H470V300M120 300V205H205V300M345 300V220H425V300M190 58V22M163 22H217"
-          stroke="#0F5DA8"
-          strokeWidth="1.1"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 2.7, ease: easing }}
-        />
-
-        <motion.path
-          d="M36 320H486M36 314V326M486 314V326M55 96H336M55 90V102M336 90V102"
-          stroke="#0F5DA8"
-          strokeWidth="0.9"
-          strokeDasharray="5 7"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 2.1, ease: easing }}
-        />
-      </motion.svg>
+      <PlanoVivienda className="pointer-events-none absolute -left-16 top-[7%] hidden h-[360px] w-[530px] text-[#0f5da8] opacity-[0.14] lg:block" />
 
       <motion.div
         aria-hidden="true"

@@ -31,6 +31,7 @@ import cocina02 from "../../assets/proyectos/cocina/02.png";
 import cocina03 from "../../assets/proyectos/cocina/03.jpg";
 
 import { Reveal } from "./motion";
+import { PlanoVivienda } from "./PlanoVivienda";
 
 type Proyecto = {
   id: string;
@@ -155,37 +156,7 @@ function BlueprintBackground() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <motion.svg
-          viewBox="0 0 520 340"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute left-[2%] top-[5%] hidden h-[320px] w-[500px] lg:block"
-        >
-          <motion.path
-            d="M22 300H498M70 300V124L190 58L310 124V300M310 170H470V300M120 300V205H205V300M345 300V220H425V300M190 58V22M165 22H215"
-            stroke="rgba(15,93,168,0.17)"
-            strokeWidth="1.2"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 2.8, ease: easing }}
-          />
-
-          <motion.path
-            d="M36 320H490M36 314V326M490 314V326M54 96H336M54 90V102M336 90V102"
-            stroke="rgba(15,93,168,0.12)"
-            strokeWidth="1"
-            strokeDasharray="5 7"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{
-              delay: 0.3,
-              duration: 2.3,
-              ease: easing,
-            }}
-          />
-        </motion.svg>
+        <PlanoVivienda className="absolute left-[2%] top-[5%] hidden h-[340px] w-[500px] text-[#0f5da8] opacity-[0.14] lg:block" />
 
         <motion.svg
           viewBox="0 0 420 280"
