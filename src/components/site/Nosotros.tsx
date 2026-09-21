@@ -27,7 +27,7 @@ const PRINCIPIOS = [
 
 const ESTADISTICAS = [
   { value: "120+", label: "Proyectos desarrollados" },
-  { value: "12", label: "Años de experiencia" },
+  { value: "7", label: "Años de experiencia" },
   { value: "30", label: "Comunas del Maule" },
 ];
 

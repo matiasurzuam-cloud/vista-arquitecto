@@ -30,6 +30,7 @@ const DATOS_CONTACTO = {
   telefonoVisible: "+56 9 3494 1180",
   ubicacion: "Maipú 2125, Molina, Región del Maule",
   horario: "Lunes a viernes · 09:00 — 20:00",
+  visitaTecnica: "Sábados · 10:00 — 14:00 hrs",
 };
 
 const MOTIVOS: Motivo[] = [
@@ -571,6 +572,10 @@ export function Contacto() {
                     Disponibilidad de lunes a viernes. La hora queda sujeta a
                     confirmación.
                   </p>
+
+                  <p className="mt-3 text-[8px] uppercase leading-[1.7] tracking-[0.14em] text-[#0f5da8]">
+                    Visitas técnicas: sábados de 10:00 a 14:00 hrs.
+                  </p>
                 </div>
 
                 <div className="border border-black/10 bg-white/85 p-5 backdrop-blur-sm sm:p-7">
@@ -827,6 +832,7 @@ export function Contacto() {
                     ["Teléfono", DATOS_CONTACTO.telefonoVisible],
                     ["Correo", DATOS_CONTACTO.email],
                     ["Horario", DATOS_CONTACTO.horario],
+                    ["Visita técnica", DATOS_CONTACTO.visitaTecnica],
                   ].map(([label, value]) => (
                     <div
                       key={label}
