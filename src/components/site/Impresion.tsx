@@ -12,7 +12,6 @@ import impresion02 from "../../assets/impresion/impresion-02.jpg";
 import impresion03 from "../../assets/impresion/impresion-03.jpg";
 
 import { Reveal } from "./motion";
-import { PlanoVivienda } from "./PlanoVivienda";
 
 type TipoServicio = "planos" | "grafica";
 type TipoPlano = "bond-bn" | "bond-color";
@@ -125,7 +124,6 @@ function BlueprintBackground() {
         }}
       />
 
-      <PlanoVivienda className="pointer-events-none absolute -left-12 top-[8%] hidden h-[350px] w-[520px] text-[#0f5da8] opacity-[0.15] lg:block" />
 
       <motion.span
         aria-hidden="true"

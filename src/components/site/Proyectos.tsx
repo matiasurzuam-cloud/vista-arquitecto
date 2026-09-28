@@ -39,7 +39,6 @@ import planosPlanta140 from "../../assets/viviendas/140-fj/04-planta.jpg";
 import planosPlanta250 from "../../assets/viviendas/250-campo/06-planta.jpg";
 
 import { Reveal } from "./motion";
-import { PlanoVivienda } from "./PlanoVivienda";
 
 type Proyecto = {
   id: string;
@@ -193,8 +192,6 @@ function BlueprintBackground() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 overflow-hidden"
       >
-        <PlanoVivienda className="absolute left-[2%] top-[5%] hidden h-[340px] w-[500px] text-[#0f5da8] opacity-[0.14] lg:block" />
-
         <motion.svg
           viewBox="0 0 420 280"
           fill="none"

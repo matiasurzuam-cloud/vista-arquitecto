@@ -5,7 +5,6 @@ import plano from "../../assets/plano.jpg";
 import oficina from "../../assets/oficina-2.jpg";
 
 import { Reveal } from "./motion";
-import { PlanoVivienda } from "./PlanoVivienda";
 
 const PRINCIPIOS = [
   {
@@ -68,7 +67,6 @@ function BlueprintScene() {
         }}
       />
 
-      <PlanoVivienda className="absolute left-[4%] top-[10%] hidden h-[430px] w-[630px] text-[#0f5da8] opacity-[0.13] lg:block" />
 
       <motion.svg
         viewBox="0 0 460 300"

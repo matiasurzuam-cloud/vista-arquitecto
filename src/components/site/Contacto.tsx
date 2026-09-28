@@ -2,7 +2,6 @@ import { FormEvent, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { Reveal } from "./motion";
-import { PlanoVivienda } from "./PlanoVivienda";
 
 type Modalidad = "presencial" | "videollamada";
 type Motivo =
@@ -118,7 +117,6 @@ function BlueprintBackground() {
         }}
       />
 
-      <PlanoVivienda className="pointer-events-none absolute -left-16 top-[7%] hidden h-[360px] w-[530px] text-[#0f5da8] opacity-[0.14] lg:block" />
 
       <motion.div
         aria-hidden="true"

@@ -252,7 +252,6 @@ function BlueprintBackground() {
         }}
       />
 
-      <PlanoVivienda className="pointer-events-none absolute -left-16 top-[4%] hidden h-[460px] w-[680px] text-[#0f5da8] opacity-[0.16] lg:block" />
     </>
   );
 }
