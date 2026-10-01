@@ -10,7 +10,7 @@ import hero02 from "../../assets/hero/hero-02.jpg";
 import hero03 from "../../assets/hero/hero-03.png";
 import hero04 from "../../assets/hero/hero-04.jpg";
 
-const SLIDE_DURATION = 1500;
+const SLIDE_DURATION = 4000;
 
 const slides = [
   {
