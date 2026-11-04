@@ -71,7 +71,7 @@ def pluck(freq, dur, decay=4.0, bright=1.0):
     return s
 
 
-def piano(freq, dur):
+def piano(freq, dur=2.6):
     n = int(dur * SR)
     t = np.arange(n) / SR
     s = np.zeros(n)
@@ -209,7 +209,9 @@ def compose(tl):
                         add(drums, noise_hit(0.06, 60, hi=7500), tq + h * beat / hats, 0.035 if h else 0.05,
                             pan=0.3)
         if st["drums"] == "cine" and b % 2 == 0 and t0 >= groove_in:
-            add(drums, noise_hit(1.2, 3, lo=180) + kick(0.6)[: int(1.2 * SR)], t0, 0.25)
+            tom = noise_hit(1.2, 3, lo=180)
+            tom[: len(kick())] += kick(0.6)
+            add(drums, tom, t0, 0.25)
     # acorde final sostenido en el cierre
     final = st["chords"][0]
     for m in final[1:]:
