@@ -14,6 +14,8 @@ import soundfile as sf
 from scipy.signal import butter, fftconvolve, sosfilt
 
 SR = 48000
+# VOZ=1 para la versión con locución (música atenuada bajo la voz). Por defecto: sin voz.
+WITH_VOICE = os.environ.get("VOZ", "0") == "1"
 rng = np.random.default_rng(7)
 
 STYLES = {
@@ -108,6 +110,17 @@ def noise_hit(n_sec, decay, lo=None, hi=None, level=1.0):
     elif lo:
         x = sosfilt(butter(2, lo, "low", fs=SR, output="sos"), x)
     return level * x * np.exp(-t * decay)
+
+
+def ui_tick(freq):
+    """Pop corto y limpio para la aparición de cada subtítulo."""
+    n = int(0.09 * SR)
+    t = np.arange(n) / SR
+    f = freq * (1 + 0.6 * np.exp(-t * 90))
+    s = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 55)
+    s += 0.3 * np.sin(2 * np.pi * freq * 2.01 * t) * np.exp(-t * 90)
+    s[:48] += rng.standard_normal(48) * 0.25 * np.linspace(1, 0, 48)
+    return s
 
 
 def sweep_noise(dur, f0, f1, level=1.0, rev=False):
@@ -244,13 +257,26 @@ def compose(tl):
     fo = np.clip((total - t) / 1.4, 0, 1) ** 1.5
     mix *= fo[:, None]
     sfx *= np.clip((total - t) / 0.6, 0, 1)[:, None]
-    # ducking bajo la locución
-    duck = np.ones(n)
-    for a, b in tl["vo"]:
-        duck[int((a - 0.15) * SR): int((b + 0.25) * SR)] = 0.38
-    k = int(0.22 * SR)
-    duck = np.convolve(duck, np.ones(k) / k, mode="same")
-    mix *= duck[:, None]
+    if WITH_VOICE:
+        # ducking bajo la locución
+        duck = np.ones(n)
+        for a, b in tl["vo"]:
+            duck[int((a - 0.15) * SR): int((b + 0.25) * SR)] = 0.38
+        k = int(0.22 * SR)
+        duck = np.convolve(duck, np.ones(k) / k, mode="same")
+        mix *= duck[:, None]
+    else:
+        # versión sin voz: el texto manda, así que cada frase lleva un "tick" suave
+        # y el gancho inicial un golpe grave
+        ticks = np.zeros((n, 2))
+        for i, s in enumerate(tl["subs"]):
+            if s["t0"] >= cta:
+                continue
+            add(ticks, ui_tick(1350 if i % 2 else 1550), s["t0"] - 0.02, 0.10, pan=0.15 if i % 2 else -0.15)
+        hook = np.concatenate([kick(1.0), np.zeros(SR)]) + noise_hit(1.45, 5, lo=220, level=0.4)
+        add(ticks, hook, 0.04, 0.45)
+        add(ticks, noise_hit(0.6, 9, hi=5000, level=0.25), 0.04, 0.2)
+        sfx += reverb(ticks, wet=0.25)
     out = mix + sfx
     out = out[: int(total * SR)]
     out /= np.max(np.abs(out)) + 1e-9

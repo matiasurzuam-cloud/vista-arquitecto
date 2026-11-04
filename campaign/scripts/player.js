@@ -384,7 +384,10 @@
     // subtítulos
     subsEl.classList.toggle("dark", light && !(inTr && lt / sc.tr < 0.5));
     TL.subs.forEach((s) => {
-      const vis = t >= s.t0 - 0.06 && t < s.t1;
+      // sin locución, las escenas cuyo texto grande ya dice la frase no repiten subtítulo
+      const owner = TL.scenes.find((x) => s.t0 < x.start + x.dur) || sc;
+      const dup = !TL.voice && (owner.type === "kinetic" || owner.type === "cta");
+      const vis = !dup && t >= s.t0 - 0.06 && t < s.t1;
       s.el.style.display = vis ? "block" : "none";
       if (!vis) return;
       const out = prog(t, s.t1 - 0.12, 0.12);

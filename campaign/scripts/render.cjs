@@ -9,6 +9,7 @@ const path = require("path");
   const [site, vdir, fpsArg, flag, stills] = process.argv.slice(2);
   const fps = Number(fpsArg || 30);
   const tl = JSON.parse(fs.readFileSync(path.join(vdir, "timeline.json"), "utf8"));
+  tl.voice = process.env.VOZ === "1";
   const browser = await chromium.launch({ args: ["--allow-file-access-from-files", "--force-color-profile=srgb"] });
   const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
   page.on("pageerror", (e) => console.error("pageerror", e.message));

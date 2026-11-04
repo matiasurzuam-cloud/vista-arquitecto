@@ -17,12 +17,16 @@ Todos los videos comparten la identidad del sitio web:
 | Motivo gráfico | Triángulo (los «tres vértices»): transición de iris triangular, retícula de plano, eyebrow con línea |
 | Fotografías | Proyectos reales del sitio (`src/assets`) |
 
-Recursos comunes a todas las piezas: HUD con logo arriba, subtítulos dinámicos palabra por palabra
-(la palabra hablada se resalta en celeste), locución masculina en español latinoamericano,
-música instrumental original, whoosh en transiciones, cierre con logo animado + `www.3vertices.cl`
+Recursos comunes a todas las piezas: HUD con logo arriba, textos/subtítulos dinámicos palabra por palabra
+(la palabra activa se resalta en celeste), música instrumental original, efectos sonoros (whoosh en
+transiciones, "tick" suave al aparecer cada frase, golpe grave en el gancho, riser + impacto en el cierre), cierre con logo animado + `www.3vertices.cl`
 + WhatsApp. Zonas seguras respetadas (sin texto importante en los 220 px superiores ni los 380 px inferiores).
 
 ---
+
+> **Versión actual: SIN locución.** Los textos de la columna «Locución» se muestran como subtítulos en
+> pantalla (en las escenas de tipografía grande y en el cierre no se repiten). Para generar la versión con
+> voz, ejecutar con `VOZ=1`.
 
 ## Video 1 — Presentación (gratuito) · ~43 s
 **Concepto:** «Un estudio, tres vértices». El triángulo del logo se convierte en el mapa de los tres servicios.
@@ -87,7 +91,7 @@ música instrumental original, whoosh en transiciones, cierre con logo animado +
 
 ## Derechos y licencias
 - **Música y efectos:** composición original generada por código (`scripts/music.py`), sin muestras de terceros → apta para publicidad.
-- **Locución:** voz sintética neural Kokoro-82M (licencia Apache 2.0, uso comercial permitido), fonética latinoamericana (`es-419`). Si se desea una voz humana, basta con reemplazar `vo.wav` respetando los tiempos de `timeline.json`.
+- **Locución:** la versión publicada no lleva voz. El pipeline sigue generando una pista guía (Kokoro-82M, Apache 2.0) que solo define los tiempos de los subtítulos; con `VOZ=1` se incluye en la mezcla. Para una voz humana, grabar los textos y reemplazar `vo.wav` respetando los tiempos de `timeline.json`.
 - **Fuentes:** Neutra Text (del sitio, licencia del estudio) + Inter (OFL) para cifras.
 - **Imágenes:** proyectos propios del estudio.
 
