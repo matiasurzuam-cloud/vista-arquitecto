@@ -110,4 +110,4 @@ bash campaign/scripts/make.sh /tmp/work /ruta/a/voices campaign/output
 | `render.cjs` | Render cuadro a cuadro con Chromium → H.264 |
 | `mix.sh` | Mezcla final y normalización a −14 LUFS |
 
-Los MP4 finales quedan en `campaign/output/` (ignorado por git para no inflar el repositorio).
+Los MP4 finales quedan en `campaign/output/` (ignorado por git para no inflar el repositorio): versión para redes (~6 Mbps, 27–34 MB) y `output/master/` en alta calidad (~14 Mbps).
