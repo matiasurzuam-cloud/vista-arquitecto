@@ -18,7 +18,7 @@ type DatosReserva = {
   comentario: string;
 };
 
-const WHATSAPP_NUMBER = "56934941180";
+const WHATSAPP_NUMBER = "56984742632";
 const MAPS_URL =
   "https://maps.app.goo.gl/FviLzjPdwsepZYNEA?g_st=ic";
 const MAP_EMBED_URL =
@@ -26,7 +26,7 @@ const MAP_EMBED_URL =
 
 const DATOS_CONTACTO = {
   email: "3vertices.arquitectos@gmail.com",
-  telefonoVisible: "+56 9 3494 1180",
+  telefonoVisible: "+56 9 8474 2632",
   ubicacion: "Maipú 2125, Molina, Región del Maule",
   horario: "Lunes a viernes · 09:00 — 20:00",
   visitaTecnica: "Sábados · 10:00 — 14:00 hrs",
