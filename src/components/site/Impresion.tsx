@@ -42,7 +42,7 @@ type PapelVolador = {
   y: number;
 };
 
-const WHATSAPP_NUMBER = "56934941180";
+const WHATSAPP_NUMBER = "56984742632";
 
 const PLANOS_BOND: OpcionPrecio[] = [
   { id: "a0-bn", servicio: "planos", formato: "A0", tipo: "bond-bn", precio: 3500 },
@@ -61,8 +61,8 @@ const GRAFICA: OpcionPrecio[] = [
   { id: "5r", servicio: "grafica", formato: "5R", medida: "13 × 18 cm", precio: 300 },
   { id: "carta", servicio: "grafica", formato: "Carta", medida: "22 × 28 cm", precio: 500 },
   { id: "a4-grafica", servicio: "grafica", formato: "A4", medida: "21 × 30 cm", precio: 500 },
-  { id: "a3-grafica", servicio: "grafica", formato: "A3", medida: "30 × 42 cm", precio: 1500 },
-  { id: "a3plus", servicio: "grafica", formato: "A3+", medida: "33 × 48 cm", precio: 2000 },
+  { id: "a3-grafica", servicio: "grafica", formato: "A3", medida: "30 × 42 cm", precio: 2000 },
+  { id: "a3plus", servicio: "grafica", formato: "A3+", medida: "33 × 48 cm", precio: 3000 },
   { id: "a2-matte", servicio: "grafica", formato: "A2", medida: "42 × 60 cm", precio: 4000, nota: "Solo Matte" },
   { id: "a1-matte", servicio: "grafica", formato: "A1", medida: "60 × 84 cm", precio: 6000, nota: "Solo Matte" },
   { id: "a0-matte", servicio: "grafica", formato: "A0", medida: "90 × 120 cm", precio: 12000, nota: "Solo Matte" },

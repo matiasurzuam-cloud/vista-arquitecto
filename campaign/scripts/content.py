@@ -14,7 +14,7 @@ Los títulos usan "/" para saltos de línea y *texto* para el acento cursivo
 """
 
 SITE = "www.3vertices.cl"
-WHATSAPP = "+56 9 3494 1180"
+WHATSAPP = "+56 9 8474 2632"
 
 # Reemplazos de pronunciación para la locución (texto en pantalla → texto hablado).
 SAY = [
